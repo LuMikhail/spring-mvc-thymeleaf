@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 50px;
+    background-color: #f2f2f2;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.library {
+    border: 1px solid green;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 40px;
+}
+
+.library th {
+    border: 1px solid green;
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+}
+
+.library td {
+    border: 1px solid green;
+    padding: 10px;
+}
+
+.library tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.library tr:hover {
+    background-color: #ddd;
+}
+
+.btn-edit,
+.btn-delete {
+    font-size: 10px;
+    padding: 4px 10px;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+button {
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    padding: 4px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+li a.active {
+    color: white;
+    background-color: #4CAF50;
+}
+
+.row {
+    margin-top: 20px;
+}

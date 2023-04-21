@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>List of all authors</title>
+    <link rel="stylesheet"  type="text/css" href="list.css">
+</head>
+<body>
+<ul>
+    <li><a class="active" href="#author">Author</a></li>
+    <li><a href="books.html" th:href="@{/}">Books</a></li>
+    <li><a href="genres.html" th:href="@{/genres}">Genres</a></li>
+</ul>
+<h1>Authors:</h1>
+<table class="library">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="author : ${authors}">
+        <td th:text="${author.id}">1</td>
+        <td th:text="${author.name}">Джесс Уолтер</td>
+        <td>
+            <form method="get" th:action="@{/editAuthor}">
+                <input type="hidden" name="id" th:value="${author.id}"/>
+                <button type="submit" class="btn-edit">Edit</button>
+            </form>
+            <form method="post" th:action="@{/delete}">
+                <input type="hidden" name="id" th:value="${author.id}"/>
+                <button type="submit" class="btn-delete">Delete</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<form method="get" th:action="@{/addAuthor}">
+    <button type="submit" class="btn-add">Add Author</button>
+</form>
+</body>
+</html>

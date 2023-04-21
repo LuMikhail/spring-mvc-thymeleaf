@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>List of all genres</title>
+    <link rel="stylesheet"  type="text/css" href="list.css">
+</head>
+<body>
+<ul>
+    <li><a class="active" href="#author">Genres</a></li>
+    <li><a href="books.html" th:href="@{/}">Books</a></li>
+    <li><a href="genres.html" th:href="@{/authors}">Authors</a></li>
+</ul>
+<h1>Genre:</h1>
+<table class="library">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="genre : ${genres}">
+        <td th:text="${genre.id}">1</td>
+        <td th:text="${genre.genre}">Детектив</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

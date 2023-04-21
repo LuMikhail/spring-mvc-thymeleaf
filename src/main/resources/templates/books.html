@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>List of all books</title>
+    <link rel="stylesheet"  type="text/css" href="list.css">
+</head>
+<body>
+<ul>
+    <li><a class="active" href="#books">Books</a></li>
+    <li><a href="authors.html" th:href="@{/authors}">Authors</a></li>
+    <li><a href="genres.html" th:href="@{/genres}">Genres</a></li>
+</ul>
+<h1>Books:</h1>
+<table class="library">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Genre</th>
+        <th>Amount</th>
+        <th>Comment</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book : ${books}">
+        <td th:text="${book.id}">1</td>
+        <td th:text="${book.title}">Над осевшими могилами</td>
+        <td th:text="${book.author.name}">Джесс Уолтер</td>
+        <td th:text="${book.genre.genre}">Детектив</td>
+        <td th:text="${book.amount}">3</td>
+        <td>
+        <form method="get" th:action="@{/findComment}">
+        <input type="hidden" name="id" th:value="${book.id}"/>
+        <button type="submit" class="btn-edit">Read comment</button>
+    </form>
+        </td>
+        <td>
+            <form method="get" th:action="@{/editBook}">
+                <input type="hidden" name="id" th:value="${book.id}"/>
+                <button type="submit" class="btn-edit">Edit</button>
+            </form>
+            <form method="post" th:action="@{/deleteBook}">
+                <input type="hidden" name="id" th:value="${book.id}"/>
+                <button type="submit" class="btn-delete">Delete</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<form method="get" th:action="@{/addBook}">
+    <button type="submit" class="btn-add">Add Book</button>
+</form>
+</body>
+</html>
